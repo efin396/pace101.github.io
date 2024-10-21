@@ -42,9 +42,8 @@ Upon logging in you should be prompted for a password, type your GT password and
 
 Once logged in, you should receive a prompt acknowledging your access to a Georgia Institute of Technology system and terms of use. Although it may vary from cluster to cluster login text may look similar to this and signifies successful access to the cluster:
 
-
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/ae8f6ecb-e480-4ecc-805a-b657c90a9196" alt="Login Prompt" />
+  <img src="https://gatech.service-now.com/ssh_success.pngx" alt="Login Prompt" />
 </div>
 
 
