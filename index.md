@@ -96,11 +96,22 @@ Once logged in, you will be able to:
 
 ### Interactive Apps
 
-1. **Login** to the appropriate OnDemand URL for your cluster.
+1. **Select** the appropriate OnDemand URL for your cluster.
 2. Navigate to the **My Interactive Sessions** tab.
-3. Select your interactive app of choice.
-4. Fill in the required details such as resources needed (e.g., GPUs, memory) and run time.
-5. Once you’re ready, click **Submit**. You will then be able to access the given app and compute resources from within the browser.
+
+   ![image](https://github.com/user-attachments/assets/8f58c39f-e52b-4a7c-ad99-0c7129f90cfd)
+
+4. Select your interactive app of choice.
+
+   ![image](https://github.com/user-attachments/assets/2e006a08-8c3a-4780-bcb9-55c25f625136)
+
+6. Fill in the required details such as resources needed (e.g., GPUs, memory) and run time opting for the minimum resources required to run your program.
+   
+   ![image](https://github.com/user-attachments/assets/a7c2287f-bdeb-48b1-b439-afae33350cde)
+   
+4. Once you’re ready, click **Launch**. You will then be able to access the given app and compute resources from within the browser once the compute resources are made available.
+   
+      ![image](https://github.com/user-attachments/assets/c90ac3ac-73ba-4c95-9894-37d77bb9b51a)
 
 ---
 
