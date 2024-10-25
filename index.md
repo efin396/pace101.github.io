@@ -2,18 +2,24 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Logging onto PACE](#logging-onto-pace)
-3. [SSH](#ssh)
-   - [Login](#login)
-   - [Interactive Jobs](#interactive-jobs)
-     - [Requesting a Node](#requesting-a-node)
-   - [Batch Jobs](#batch-jobs)
-     - [Writing a batch script](#writing-a-batch-script)
-4. [Loading Modules](#loading-modules)
-5. [Building and Running Programs](#building-and-running-programs)
+2. [Prerequisites](#prerequisites)
+3. [Safety and Etiquette Guidelines](#safety-and-etiquette-guidelines)
+4. [Overview of PACE Resources](#overview-of-pace-resources)
+5. [Logging onto PACE](#logging-onto-pace)
 6. [OnDemand](#ondemand)
-   - [Accessing OnDemand](#accessing-ondemand)
-   - [Interactive Apps](#interactive-apps)
+      - [Accessing OnDemand](#accessing-ondemand)
+      - [Interactive Apps](#interactive-apps)
+9. [SSH](#ssh)
+      - [Login](#login)
+      - [Interactive Jobs](#interactive-jobs)
+      - [Requesting a Node](#requesting-a-node)
+      - [Module Loading and Dependency Management](#module-loading-and-dependency-management)
+      - [Building and Running](#building-and-running)
+      - [Batch Jobs](batch-jobs)
+          - [Writing a Batch Script](#writing-a-batch-script)
+17. [Conclusion](#conclusion)
+18. [References](#references)
+
    
 ---
 
@@ -197,7 +203,7 @@ If you are building a project with multiple source files, pass all of them to `n
 
 ---
 
-### SSH - Batch Jobs
+### Batch Jobs
 
 Batch jobs on PACE are jobs that allow you to submit one or several scripts to the cluster at a given time. This enables automated requests for compute resources and running of programs simultaneously across several compute nodes.
 
