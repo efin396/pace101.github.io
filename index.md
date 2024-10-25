@@ -27,7 +27,7 @@ Welcome to your first step in submitting a job using Georgia Tech’s **Partners
 
 Before starting this guide, please ensure that:
 - You have been granted access to a PACE cluster by Georgia Tech.
-- You are familiar with using command-line interfaces.
+- You are are familar with a programming langauge.
 
 ## Safety and Etiquette Guidelines
 
@@ -158,28 +158,90 @@ To find the job number, run `squeue`.
 
 To exit interactive mode prior to the allotted session time, run `exit`.
 
-### Batch Jobs
+### Module Loading and Dependency Management
+
+To make dependency management easier, PACE clusters use a tool called **Lua Modules**, where each “module” corresponds to a package. To build the attached CUDA program, we will first need to load the correct modules. On most GT clusters, the `nvhpc` module will load everything you need to build a CUDA program.
+
+To load a list of desired modules, run:
+
+```bash
+module load <module1> <module2> ...
+```
+
+For our CUDA program, the easiest option is to load the `nvhpc` module. If everything went well, you will either see no message or a message of the form:
+
+```plaintext
+Lmod is automatically replacing "gcc/12.3.0" with "nvhpc-nvc/24.5".
+
+Inactive Modules:
+  1) libiconv/1.17 	2) libpciaccess/0.17 	3) libxml2/2.10.3 	4) mvapich2 	
+  5) pmix/4.2.6 	6) slurm/23.11.1 	7) xz/5.4.1 	8) zlib/1.2.13
+```
+
+This log shows that two modules (`gcc/12.3.0` and `nvhpc-nvc/24.5`) are mutually exclusive, so it disabled `gcc`. Now that you have the appropriate modules loaded, you should be able to build your CUDA program!
+
+If your project requires other dependencies, type `module list` to see a full list of all available modules on the system, and `module spider <module name>` to check if a certain module is on the system.
+
+### Building and Running
+
+1. Make a new directory for your CUDA project’s source code.
+2. An example program which multiplies two matrices can be found here: [Example Program](https://github.com/CoffeeBeforeArch/cuda_programming/blob/master/02_matrix_mul/baseline/mmul.cu).
+
+To build this program, run:
+
+```bash
+nvcc matmul.cu
+```
+
+If you are building a project with multiple source files, pass all of them to `nvcc`.
+
+---
+
+### SSH - Batch Jobs
 
 Batch jobs on PACE are jobs that allow you to submit one or several scripts to the cluster at a given time. This enables automated requests for compute resources and running of programs simultaneously across several compute nodes.
 
-#### Writing a batch script
+For jobs you wish to perform multiple times, we suggest you write a batch script. A batch script is a shell script with additional comments at the top of the file that specify the arguments to SLURM.
 
-(Instructions on writing a batch script)
+#### Writing a Batch Script
 
-## Loading Modules
+A batch script must begin with `#!/bin/bash`. It must also include the following lines:
 
-To make dependency management easier, PACE clusters use a tool called **Lua Modules**, where each “module” corresponds to a package. To build the attached CUDA program, we will first need to load the correct modules.
+- **Tracking account**: This is the project supervisor for a job run. The account username will have the form `gts-<username>`, with the username being for the PI.
 
-## Building and Running Programs
+  ```bash
+  #SBATCH --account=gts-gburdell3
+  ```
 
-(Instructions on building and running your CUDA program)
+- **Job partition**: Each partition has a certain hardware spec, which you can find [here](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042005). The default `phoenix` partition is provided based on your charge account and the most significant resources requested.
 
+  ```bash
+  #SBATCH -p phoenix
+  ```
+
+Additional options can be found [here](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042003).
+
+For the purpose of this guide, we suggest creating two batch scripts – one to build the program and one to run it.
 
 ### Conclusion
-	This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise, here are a list of potential resources:
-[PACE Consulting Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042280)
-[PACE Training Sessions] (https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042298)
-[Other Pace Documentation Resources] (https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503)
+This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise, here are a list of potential resources:
+
+- [PACE Consulting Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042280)
+- [PACE Training Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042298)
+- [Other Pace Documentation Resources](https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503)
+
+## References
+TODO: Convert to APA format
+https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976
+
+https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041969
+
+https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998
+
+https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998
+
+https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
+(For the `sm` argument)
 
 
 
