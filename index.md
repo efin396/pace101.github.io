@@ -205,20 +205,6 @@ This log shows that two modules (`gcc/12.3.0` and `nvhpc-nvc/24.5`) are mutually
 
 If your project requires other dependencies, type `module list` to see a full list of all available modules on the system, and `module spider <module name>` to check if a certain module is on the system.
 
-### Building and Running
-
-1. Make a new directory for your CUDA project’s source code.
-2. An example program which multiplies two matrices can be found here: [Example Program](https://github.com/CoffeeBeforeArch/cuda_programming/blob/master/02_matrix_mul/baseline/mmul.cu).
-
-To build this program, run:
-
-```bash
-nvcc matmul.cu
-```
-
-If you are building a project with multiple source files, pass all of them to `nvcc`.
-
----
 
 ### Batch Jobs
 
@@ -245,6 +231,21 @@ A batch script must begin with `#!/bin/bash`. It must also include the following
 Additional options can be found [here](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042003).
 
 For the purpose of this guide, we suggest creating two batch scripts – one to build the program and one to run it.
+
+### Building and Running
+
+1. Make a new directory for your CUDA project’s source code.
+2. An example program which multiplies two matrices can be found here: [Example Program](https://github.com/CoffeeBeforeArch/cuda_programming/blob/master/02_matrix_mul/baseline/mmul.cu).
+
+To build this program, run:
+
+```bash
+nvcc matmul.cu
+```
+
+If you are building a project with multiple source files, pass all of them to `nvcc`.
+
+---
 
 ### Conclusion
 This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise or you are in need of further assistance, here are a list of potential resources:
