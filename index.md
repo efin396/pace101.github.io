@@ -31,9 +31,15 @@ Welcome to your first step in submitting a job using Georgia Tech’s **Partners
 
 ## Prerequisites
 
-Before starting this guide, please ensure that:
-- You have been granted access to a PACE cluster by Georgia Tech.
-- You are are familar with a programming langauge.
+Before starting this guide, please ensure the following:
+
+- **PACE Access Approval**: You must have been granted access to a PACE cluster by Georgia Tech. If you haven’t applied yet, please contact your project supervisor or department for access information.
+
+- **Basic Programming Knowledge**: This guide assumes that you have a basic understanding of programming.
+
+- **VPN Connection**: To acccess PACE, ensure you have set up and can connect through the **Georgia Tech VPN**. This is required to log in to the clusters through either SSH or OnDemand.
+
+Once these prerequisites are met, you’ll be ready to follow along and begin your first job submission on PACE!
 
 ## Safety and Etiquette Guidelines
 
@@ -230,11 +236,13 @@ Additional options can be found [here](https://gatech.service-now.com/home?id=kb
 For the purpose of this guide, we suggest creating two batch scripts – one to build the program and one to run it.
 
 ### Conclusion
-This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise, here are a list of potential resources:
+This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise or you are in need of further assistance, here are a list of potential resources:
 
 - [PACE Consulting Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042280)
 - [PACE Training Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042298)
 - [Other Pace Documentation Resources](https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503)
+
+With this foundation, you are ready to explore more complex workflows and maximize PACE’s computational resources for your research or projects. Best of luck, and happy computing!
 
 ## References
 TODO: Convert to APA format
