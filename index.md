@@ -256,17 +256,38 @@ This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoen
 With this foundation, you are ready to explore more complex workflows and maximize PACE’s computational resources for your research or projects. Best of luck, and happy computing!
 
 ## References
-TODO: Convert to APA format
-https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976
 
-https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041969
+- **Arnon Shimoni.** (2024, July 12). Matching cuda arch and CUDA GENCODE for various Nvidia Architectures.  
+  [https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+  
+- **Nick.** (n.d.). mmul.cu Github. 
+  [https://github.com/CoffeeBeforeArch/cuda_programming/blob/master/02_matrix_mul/baseline/mmul.cu](https://github.com/CoffeeBeforeArch/cuda_programming/blob/master/02_matrix_mul/baseline/mmul.cu)
 
-https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998
+- **Georgia Institute of Technology.** (n.d.). Phoenix Cluster Resources. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976)
 
-https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998
+- **Georgia Institute of Technology.** (n.d.). Log on to Phoenix. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041969](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041969) 
 
-https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
-(For the `sm` argument)
+- **Georgia Institute of Technology.** (n.d.). Using Slurm on Phoenix. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041998)
+
+- **Georgia Institute of Technology.** (n.d.). Phoenix Cluster Resources. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976)
+
+- **Georgia Institute of Technology.** (n.d.). PACE Consulting Sessions. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976)
+
+- **Georgia Institute of Technology.** (n.d.). PACE Training. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976)
+
+- **Georgia Institute of Technology.** (n.d.). Pace Cluster Documentation. Georgia Tech Service Now.  
+  [https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0041976)
+  
+
+
+
+
 
 
 
