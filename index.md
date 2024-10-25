@@ -14,16 +14,83 @@
 6. [OnDemand](#ondemand)
    - [Accessing OnDemand](#accessing-ondemand)
    - [Interactive Apps](#interactive-apps)
+   
+---
 
 ## Introduction
 
 Congratulations, you have just been granted access to Georgia Tech’s compute resources! 🎉
 
-Welcome to your first step in submitting a job using Georgia Tech’s **Partnership for an Advanced Computing Environment (PACE)**! Whether you’re accessing PACE through **SSH** or the web-based **OnDemand** platform, the following guide will walk you through everything you need to know to successfully run your first job on PACE. In this tutorial, you’ll learn how to log into PACE, either through SSH or the OnDemand interface, and how to request compute resources. You’ll also discover how to load the necessary modules necessary to run your programs, so you’ll be fully prepared to execute your job on the cluster. Along the way, we’ll cover writing and submitting batch jobs using SLURM, as well as exploring the OnDemand interface for a more intuitive way to utilize compute resources through programs like RStudio, MATLAB, and Jupyter Notebooks. By the end of this guide, you’ll be fully equipped to build and submit your first CUDA job on PACE. Whether you’re a seasoned command-line user or a beginner, we’ve got you covered. Let’s dive in and get started! 🎯
+Welcome to your first step in submitting a job using Georgia Tech’s **Partnership for an Advanced Computing Environment (PACE)**! In this tutorial, you’ll learn how to log into PACE, either through SSH or the OnDemand interface, and how to request compute resources.By the end of this guide, you’ll be fully equipped to build and submit your first CUDA job on PACE. Whether you're an experienced programmer or novice, this guide is tailored to help you take your first steps on PACE. Please note that this guide assumes a basic understanding of programming.
+
+## Prerequisites
+
+Before starting this guide, please ensure that:
+- You have been granted access to a PACE cluster by Georgia Tech.
+- You are familiar with using command-line interfaces.
+
+## Safety and Etiquette Guidelines
+
+Here are a few essential safety and etiquette guidelines for using PACE compute resources:
+
+1. **Avoid Heavy Processing on Login Nodes**: The login nodes are shared access points, so avoid running compute-intensive programs here, as it slows down the experience for everyone. Use compute nodes instead by submitting jobs or starting interactive sessions.
+
+2. **Monitor Resource Usage**: Only request the amount of compute resources (CPUs, GPUs, memory) you need. Overestimating can delay your job and those of other users. For test runs, start with small allocations, then scale up as necessary.
+
+3. **Data Security**: Do not store sensitive or personally identifiable information (PII) on PACE unless you have permission and are following Georgia Tech’s data security guidelines. 
+
+4. **Save Your Work**: Regularly back up your data, as storage on compute nodes is not permanent. Use your allocated storage for active work, but move completed projects to more permanent storage solutions.
+
+5. **Cancel Idle Jobs**: If you no longer need a job, cancel it to free up resources for other users. You can use the `scancel` command for this.
+
+6. **Abide by Usage Policies**: Georgia Tech has specific policies for using PACE resources, including respecting the intended use for research and academic purposes.
+
+## Overview of PACE Resources
+
+If you are unfamiliar with PACE, here is a brief overview of the types of clusters that are available. Each of the clusters operate independently and have separate access permissions.
+
+1. _**Phoenix Cluster:**_
+The Phoenix Cluster is the flagship compute cluster of PACE. It ranked #463 in the Top500 supercomputer ranking in November 2022. A variety of compute nodes are available, some of which include access to NVIDIA H100, A100, L40, and RTX-6000 GPUs, with Intel Xeon Gold CPUs. There are also 5 petabytes (PB) of project storage and 1.5 PB of scratch storage. Over 1300 nodes available in total. This cluster excels at general high-performance computing and AI workloads.
+
+2. _**ICE Cluster:**_
+The ICE (Instructional Cluster Environment) Cluster is tailored for instructional use by certain courses. Like the other clusters, there are CPU and GPU nodes available by request.
+
+3. _**HIVE Cluster:**_
+The HIVE Cluster is a smaller cluster with a similar blend of CPU-only and GPU-enabled compute nodes. The cluster has 16 GPU nodes, each with 4 NVIDIA V100 GPUs.
+
+---
 
 ## Logging onto PACE
-
 There are two ways to log onto a PACE cluster, either through SSH or through Georgia Tech’s OnDemand instance (ice, phoenix) for your desired cluster. To access your cluster through either of these channels, **you will first need to log onto the campus VPN**.
+
+## OnDemand
+
+Georgia Tech’s **Open OnDemand** is a web-based interface for accessing the PACE clusters. It provides an easier alternative to the command line for running jobs, submitting batch scripts, and accessing files on the cluster. For those interested in accessing PACE compute resources through SSH, please continue to the [SSH](#ssh) section.
+
+### Accessing OnDemand
+
+OnDemand is available for both the Phoenix, ICE, and Hive clusters, and it can be accessed through the following URLs:
+
+- **Phoenix**: [https://phoenix-ondemand.pace.gatech.edu](https://ondemand-phoenix.pace.gatech.edu/)
+- **ICE**: [https://ondemand-ice.pace.gatech.edu](https://ondemand-ice.pace.gatech.edu/)
+- **Hive**: [https://ondemand-hive.pace.gatech.edu/](https://ondemand-hive.pace.gatech.edu/)
+
+You must be connected to the **Georgia Tech VPN** to access these interfaces.
+
+Once logged in, you will be able to:
+
+- Launch **interactive apps** such as terminal sessions, Jupyter notebooks, or MATLAB GUIs without having to configure your environment manually.
+- Submit and monitor batch jobs through a graphical interface instead of using command-line SLURM.
+
+### Interactive Apps
+
+1. **Login** to the appropriate OnDemand URL for your cluster.
+2. Navigate to the **My Interactive Sessions** tab.
+3. Select your interactive app of choice.
+4. Fill in the required details such as resources needed (e.g., GPUs, memory) and run time.
+5. Once you’re ready, click **Submit**. You will then be able to access the given app and compute resources from within the browser.
+
+---
 
 ## SSH
 **SSH (Secure Shell)** is a fast and light-weight means of accessing the PACE compute recourses. As a command line interface, SSH access does not provide users with a graphical interface. However unlike OnDemand, it enables direct file transfer, batch job scripting, and better network resource efficiency. 
@@ -107,30 +174,12 @@ To make dependency management easier, PACE clusters use a tool called **Lua Modu
 
 (Instructions on building and running your CUDA program)
 
-## OnDemand
 
-### Accessing OnDemand
-
-Georgia Tech’s **Open OnDemand** is a web-based interface for accessing the PACE clusters. It provides an easier alternative to the command line for running jobs, submitting batch scripts, and accessing files on the cluster. OnDemand is available for both the Phoenix, ICE, and Hive clusters, and it can be accessed through the following URLs:
-
-- **Phoenix**: [https://phoenix-ondemand.pace.gatech.edu](https://ondemand-phoenix.pace.gatech.edu/)
-- **ICE**: [https://ondemand-ice.pace.gatech.edu](https://ondemand-ice.pace.gatech.edu/)
-- **Hive**: [https://ondemand-hive.pace.gatech.edu/](https://ondemand-hive.pace.gatech.edu/)
-
-You must be connected to the **Georgia Tech VPN** to access these interfaces.
-
-Once logged in, you will be able to:
-
-- Launch **interactive apps** such as terminal sessions, Jupyter notebooks, or MATLAB GUIs without having to configure your environment manually.
-- Submit and monitor batch jobs through a graphical interface instead of using command-line SLURM.
-
-### Interactive Apps
-
-1. **Login** to the appropriate OnDemand URL for your cluster.
-2. Navigate to the **My Interactive Sessions** tab.
-3. Select your interactive app of choice.
-4. Fill in the required details such as resources needed (e.g., GPUs, memory) and run time.
-5. Once you’re ready, click **Submit**. You will then be able to access the given app and compute resources from within the browser.
+### Conclusion
+	This concludes our guide on how to write and run a PACE CUDA job on ICE or Phoenix clusters. If any issues arise, here are a list of potential resources:
+[PACE Consulting Sessions](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042280)
+[PACE Training Sessions] (https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042298)
+[Other Pace Documentation Resources] (https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503)
 
 
 
