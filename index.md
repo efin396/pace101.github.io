@@ -211,6 +211,7 @@ If your project requires other dependencies, type `module list` to see a full li
 Batch jobs on PACE are jobs that allow you to submit one or several scripts to the cluster at a given time. This enables automated requests for compute resources and running of programs simultaneously across several compute nodes.
 
 For jobs you wish to perform multiple times, we suggest you write a batch script. A batch script is a shell script with additional comments at the top of the file that specify the arguments to SLURM.
+**They are the same as those used when requesting an interactive job**.
 
 #### Writing a Batch Script
 
@@ -231,6 +232,26 @@ A batch script must begin with `#!/bin/bash`. It must also include the following
 Additional options can be found [here](https://gatech.service-now.com/home?id=kb_article_view&sysparm_article=KB0042003).
 
 For the purpose of this guide, we suggest creating two batch scripts – one to build the program and one to run it.
+Both scripts should begin with the following (after `#!/bin/bash`):
+```bash
+#SBTACH --account=gts-gburdell3
+#SBATCH --gres=gpu:V100:1
+#SBATCH --time=0:30:00
+# ^ 30 minutes should be plenty for this.
+
+module load nvhpc
+```
+
+After these lines, the build script should contain the `nvcc` command from the following section.
+The run script should contain `./matmul`.
+To submit the batch script, run
+
+```bash
+sbatch <path-to-batch-script>
+```
+
+This does the same thing as `salloc` except it uses your script and keeps you on the login node.
+Anything this process prints to the console can be found in `<job_number>.out` in the directory where you ran the script.
 
 ### Building and Running
 
@@ -240,10 +261,15 @@ For the purpose of this guide, we suggest creating two batch scripts – one to 
 To build this program, run:
 
 ```bash
-nvcc matmul.cu
+nvcc mmul.cu -arch=sm_70 -o matmul
 ```
 
-If you are building a project with multiple source files, pass all of them to `nvcc`.
+If you are building a project with multiple source files, pass all of them to nvcc. The -arch flag informs CUDA of the targeted GPU. SM_70 is for Volta cards – the V100 requested in the salloc command is one of them. If you requested a different card, refer to this website and choose the appropriate SM value for your card.
+
+To run the program, simply type:
+```bash
+./matmul
+```
 
 ---
 
